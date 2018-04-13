@@ -29,7 +29,7 @@ module.exports = {
 var _ = require('lodash');
 var yaml = require('js-yaml');
 var path = require('path');
-var sway = require('sway');
+var sway = require('@openapi-mock/sway');
 var debug = require('debug')('swagger');
 var bagpipes = require('bagpipes');
 var EventEmitter = require('events').EventEmitter;
@@ -245,7 +245,7 @@ function Runner(appJsConfig, cb) {
           console.error("\t#" + i + ".: " + err.validationErrors[i].message + " in swagger config at: >" + err.validationErrors[i].path.join('/') + "<");
         }
       }
-      
+
       process.nextTick(function() { throw err; });
     })
 }
